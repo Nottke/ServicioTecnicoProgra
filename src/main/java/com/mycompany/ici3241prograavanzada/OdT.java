@@ -7,18 +7,59 @@ public class OdT {
     private int rutCliente;
     private String servicio;
     private String fecha;
-    private ArrayList<Servicio> listaServicios;
+    private int precio;
+    public ArrayList<Servicio> listaServicios;
+    
 
-    public OdT(int numOrden, int rutCliente, String servicio, String fecha) {
+    public OdT(int numOrden, int rutCliente, String servicio, String fecha, int precio) {
         this.numOrden = numOrden;
         this.rutCliente = rutCliente;
         this.servicio = servicio;
         this.fecha = fecha;
+        this.precio = precio;
         this.listaServicios = new ArrayList<>();
+        
     }
-    public void agregarServicio(Servicio obj){ // agregar un servicio (
-        this.listaServicios.add(obj);
+    
+    public OdT(String servicio, String fecha){
+        this.servicio = servicio;
+        this.fecha = fecha;
+    }
+    public OdT(String servicio, int precio){
+        this.servicio = servicio;
+        this.precio = precio;
+        
+    }
+    public OdT(String servicio){
+        this.servicio = servicio;
+    }
+   
+    
+    public void agregarServicios(Servicio b){      
+        this.listaServicios.add(b);
+        System.out.println("Servicios agregados.");
+    }
+    public void agregarServicio(Servicio b){ // agregar un servicio (
+        this.listaServicios.add(b);
         System.out.println("Servicio agregado.");
+    }
+    public void buscarServicio(String servicio){
+        this.listaServicios.forEach(
+        (b) -> {
+            if (b.getServicio().equals(servicio)){
+                b.mostrarServicio();
+                return;
+            }else
+            {
+                System.out.println("pase por aqui");
+            }              
+        });
+    }
+
+    public void mostrarServicios(){
+        for(int i = 0; i<this.listaServicios.size();i++){
+            this.listaServicios.get(i).mostrarServicio();
+        }
     }
     
     public void mostrarOrden(){ //método para mostrar orden guardada
@@ -72,5 +113,11 @@ public class OdT {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-    
+    public int getPrecio(){
+        return precio;
+    }
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
 }

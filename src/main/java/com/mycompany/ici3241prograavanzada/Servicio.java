@@ -10,7 +10,7 @@ public class Servicio {
     }
     
     public void mostrarServicio(){
-        System.out.println(this.servicio);
+        System.out.println("hola");
     }
 
     public String getServicio() {
@@ -28,6 +28,5 @@ public class Servicio {
     public void setPrecioServicio(int precioServicio) {
         this.precioServicio = precioServicio;
     }
-    
     
 }
